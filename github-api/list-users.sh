@@ -1,5 +1,18 @@
 #!/bin/bash
 
+#########################################################################
+#Owner   : Nithya
+#Date    :03-04-2024
+#version : V1
+
+# List the users who has access to the speific repo in organization
+#expected arguments to run the script is 2
+#Before running the script please export username and Token in terminal
+############################################################################
+
+# Calling helper function to check whether user acccessing the script with required args
+helper()
+
 # GitHub API URL
 API_URL="https://api.github.com"
 
@@ -34,6 +47,12 @@ function list_users_with_read_access {
         echo "Users with read access to ${REPO_OWNER}/${REPO_NAME}:"
         echo "$collaborators"
     fi
+}
+
+function helper{
+expected_args=2
+if [ $# ne $expected_args ]; then
+echo "please execute the script with required args"
 }
 
 # Main script
